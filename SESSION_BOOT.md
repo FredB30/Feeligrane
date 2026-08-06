@@ -10,6 +10,8 @@ It does not replace the Constitution.
 
 It implements it.
 
+This operational protocol shall be interpreted consistently with CONSTITUTION.md.
+
 ---
 
 # Purpose
