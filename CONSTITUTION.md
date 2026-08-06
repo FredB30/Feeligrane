@@ -128,7 +128,7 @@ The project shall never depend on a single AI model.
 
 ---
 
-# Article XI — Constitutional Hierarchy
+# Article XI — Normative Hierarchy
 
 The normative hierarchy of the project is:
 
