@@ -288,6 +288,62 @@ This principle has since been incorporated into:
 
 ---
 
+# Concepts and languages
+
+Working doctrinal position.
+
+Feeligrane distinguishes between concepts and their linguistic realisations.
+
+The project's taxonomy is concept-based, not language-based.
+
+A concept exists independently of any particular language.
+
+Each supported language provides its own set of lexical markers associated with that concept.
+
+For example:
+
+```
+Concept
+    ↓
+Language pack
+    ↓
+Lexical markers
+    ↓
+Occurrences
+```
+
+Illustration:
+
+```
+Concept
+──────────────
+Guilt
+
+English
+- guilt
+- guilty
+- self-blame
+- guilt-ridden
+
+French
+- culpabilité
+- coupable
+- je m'en veux
+- faute
+```
+
+This distinction preserves the project's methodological independence from any specific language.
+
+It also reinforces the separation between observation and interpretation.
+
+The detector observes lexical markers.
+
+The taxonomy organises concepts.
+
+Human interpretation remains responsible for connecting observations to meaning.
+
+This doctrinal position may later become part of the project's methodology.
+
 # General transparency
 
 Current doctrinal proposal.
