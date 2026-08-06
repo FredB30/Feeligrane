@@ -4,13 +4,13 @@
 
 If the repository is the project's memory, **SESSION_BOOT.md is its reboot sequence**.
 
->This document defines the operational protocol for recovering context before contributing to Feeligrane.
+This document defines the operational protocol for recovering context before contributing to Feeligrane.
 
 It does not replace the Constitution.
 
 It implements it.
 
-This operational protocol shall be interpreted consistently with CONSTITUTION.md.
+>This operational protocol shall be interpreted consistently with CONSTITUTION.md.
 
 ---
 
