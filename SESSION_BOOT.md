@@ -1,189 +1,263 @@
 # SESSION_BOOT.md
 
-> Mandatory reading before every development session.
+> **Mandatory reading before every development session.**
+
+If the repository is the project's memory, **SESSION_BOOT.md is its reboot sequence**.
+
+This document defines the operational protocol for recovering context before contributing to Feeligrane.
+
+It does not replace the Constitution.
+
+It implements it.
 
 ---
 
-# Mission
+# Purpose
 
-Feeligrane is an open-source browser extension that helps readers identify and annotate affective patterns in long-form writing.
+The objective of this protocol is to ensure that any contributor—human or AI—can resume development without relying on conversational memory.
 
-The project studies texts.
+The repository is the project's source of truth.
 
-It never analyses or diagnoses people.
-
-Conversation history is NOT the source of truth.
-
-The repository is.
+Conversation history is not.
 
 ---
 
-# Session startup protocol
+# Startup protocol
 
-Before writing a single line of code:
-
-1. Read README.md.
-2. Read CHANGELOG.md.
-3. Read docs/session-log.md.
-4. Read docs/roadmap.md.
-5. Read every ADR created since the previous session.
-6. Read any documentation related to the current task.
-7. Review open GitHub Issues if available.
-
-Only then begin working.
+Complete the following steps **before writing code, proposing architecture or modifying documentation.**
 
 ---
 
-# Guiding principles
+## Step 1 — Read the Constitution
 
-## Architecture
+Read:
 
-- Prefer simple solutions.
-- Local-first whenever possible.
-- AI must remain optional.
-- Deterministic rules before statistical inference.
-- Separate rules from code.
-- Keep the project understandable.
+`CONSTITUTION.md`
 
----
+Purpose:
 
-## Scientific methodology
+Understand the project's highest-level principles.
 
-Annotations concern texts.
-
-Never people.
-
-Every annotation must be:
-
-- reproducible
-- explainable
-- reviewable
-- contestable
-
-Avoid over-interpretation.
+Every subsequent decision shall remain compatible with the Constitution.
 
 ---
 
-## Development philosophy
+## Step 2 — Read SESSION_BOOT
 
-One sprint.
+Purpose:
 
-One objective.
+Recover the project's working protocol.
 
-One deliverable.
-
-One commit.
-
-Every version should be usable.
+Understand how contributions are expected to proceed.
 
 ---
 
-# Coding philosophy
+## Step 3 — Read PROJECT_STATE (when available)
+
+Purpose:
+
+Understand where the project currently stands.
+
+Recover:
+
+- current milestone;
+- current sprint;
+- active objectives;
+- technical debt;
+- next deliverable.
+
+If PROJECT_STATE.md does not yet exist, obtain this information from:
+
+- CHANGELOG.md
+- docs/session-log.md
+- docs/roadmap.md
+
+---
+
+## Step 4 — Read PROJECT_CODE (when available)
+
+Purpose:
+
+Recover the project's active consolidated rules.
+
+PROJECT_CODE.md is a generated consolidation.
+
+It never creates norms.
+
+It reflects them.
+
+If PROJECT_CODE.md does not yet exist, recover active rules by reading:
+
+- CONSTITUTION.md
+- active ADRs
+- methodology
+- relevant documentation
+
+---
+
+## Step 5 — Read task-specific documentation
+
+Only now read documentation directly related to the current task.
+
+Examples:
+
+- methodology.md
+- taxonomy.md
+- glossary.md
+- vision.md
+- relevant ADRs
+- GitHub Issues
+
+---
+
+# Working principles
+
+During every session:
+
+- prefer simplicity;
+- explain important choices;
+- preserve architectural coherence;
+- respect the project's normative hierarchy;
+- avoid unnecessary complexity.
+
+Never optimise for the current conversation.
+
+Optimise for the repository.
+
+---
+
+# Documentation responsibilities
+
+Documentation is part of the deliverable.
+
+Whenever work changes:
+
+- architecture;
+- methodology;
+- terminology;
+- governance;
+
+the corresponding documentation should also be updated.
+
+---
+
+# Required updates
+
+When appropriate:
+
+Architecture changes
+
+→ create or update an ADR.
+
+Terminology changes
+
+→ update `glossary.md`.
+
+Methodological changes
+
+→ update `methodology.md`.
+
+Roadmap changes
+
+→ update `roadmap.md`.
+
+Session completed
+
+→ update `docs/session-log.md`.
+
+Release completed
+
+→ update `CHANGELOG.md`.
+
+---
+
+# Constitutional consistency
+
+Before considering work complete, verify that the proposed changes remain compatible with:
+
+1. CONSTITUTION.md
+2. SESSION_BOOT.md
+3. Active ADRs
+
+Lower-level documents shall never contradict higher-level documents.
+
+---
+
+# Repository philosophy
+
+The repository should remain understandable without privileged historical knowledge.
+
+Future contributors should recover context by reading documentation.
+
+Not by reconstructing past conversations.
+
+---
+
+# Development philosophy
 
 Prefer:
 
-- plain TypeScript
-- WebExtension standards
-- YAML configuration
-- JSON exports
-- Markdown documentation
+- incremental progress;
+- deterministic behaviour;
+- explainable systems;
+- local-first design;
+- explicit architecture.
 
-Avoid unnecessary frameworks.
+Avoid:
 
-Every dependency must justify its existence.
-
----
-
-# Repository structure
-
-README.md
-General entry point
-
-CHANGELOG.md
-Project history
-
-SESSION_BOOT.md
-Session startup protocol
-
-docs/
-Documentation
-
-research/
-Research material
-
-extension/
-Browser extension
-
-tests/
-Validation
-
-samples/
-Reference material
-
----
-
-# During the session
-
-Always explain:
-
-- why a solution is chosen
-- why alternatives are rejected
-
-Whenever architecture changes:
-
-→ create an ADR.
-
-Whenever terminology evolves:
-
-→ update glossary.md.
-
-Whenever priorities change:
-
-→ update roadmap.md.
-
-Whenever a sprint ends:
-
-→ update session-log.md.
+- unnecessary dependencies;
+- opaque reasoning;
+- premature optimisation;
+- feature creep.
 
 ---
 
 # End-of-session checklist
 
-□ Documentation updated
+Before ending the session, verify:
 
-□ Changelog updated
+- [ ] Code remains coherent.
+- [ ] Documentation matches implementation.
+- [ ] Constitutional consistency has been preserved.
+- [ ] ADR written if required.
+- [ ] CHANGELOG updated if required.
+- [ ] Session log updated.
+- [ ] Next sprint identified.
 
-□ Session log updated
-
-□ ADR written if necessary
-
-□ Next sprint identified
-
-□ Repository left in a coherent state
+Leave the repository in a state where another contributor can continue immediately.
 
 ---
 
-# Current milestone
+# Reading order summary
 
-Current release:
-v0.0.1 "Thread"
+```
+CONSTITUTION
+        ↓
+SESSION_BOOT
+        ↓
+PROJECT_STATE
+        ↓
+PROJECT_CODE
+        ↓
+Task-specific documentation
+        ↓
+Implementation
+```
 
-Objective:
+Each step answers a different question.
 
-Create the first working browser extension.
-
-Current priorities:
-
-1. Manifest V3
-2. Popup
-3. Detect Substack
-4. Read article
-5. First release
+| Document | Purpose |
+|----------|---------|
+| CONSTITUTION | What principles govern the project? |
+| SESSION_BOOT | How should a contribution begin? |
+| PROJECT_STATE | Where does the project currently stand? |
+| PROJECT_CODE | Which consolidated rules are currently in force? |
+| Task documentation | What knowledge is required for this task? |
 
 ---
 
 # Golden Rule
 
-Never optimise for the current conversation.
+The goal of every session is not merely to produce code.
 
-Optimise for a repository that will still make sense one year from now.
+It is to leave the repository more understandable than it was at the beginning of the session.
