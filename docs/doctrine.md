@@ -271,6 +271,29 @@ The repository itself becomes a communication protocol.
 
 ---
 
+# Transferability
+
+Working hypothesis.
+
+The governance model being developed for Feeligrane may prove transferable beyond this project.
+
+At present, this remains a hypothesis.
+
+The current repository constitutes only one implementation.
+
+A governance model should not be considered transferable until it has been successfully applied to at least one substantially different project.
+
+Until then, contributors should clearly distinguish between:
+
+- domain-specific knowledge;
+- repository governance.
+
+Only the latter is expected to become reusable.
+
+This distinction should help prevent premature abstraction while preserving the possibility of extracting a generic methodology in the future.
+
+---
+
 # Separation of knowledge
 
 The project should always distinguish:
