@@ -1,0 +1,241 @@
+# ADR-0002
+
+# Browser Extension Architecture
+
+**Status**
+
+Accepted
+
+**Date**
+
+2026-08-07
+
+---
+
+# Context
+
+Following the establishment of the project's governance and conceptual foundations, Feeligrane enters its first implementation phase.
+
+The objective is not to build a feature-complete browser extension, but to establish a simple, modular and extensible architecture capable of supporting future developments.
+
+The first implementation should prioritise clarity over completeness.
+
+---
+
+# Problem
+
+How should the browser extension be structured so that future features—such as language packs, annotation sidebars, exports and AI-assisted analysis—can be added without requiring architectural redesign?
+
+---
+
+# Decision
+
+Feeligrane adopts a modular browser extension architecture based on four distinct responsibilities:
+
+1. Browser integration
+2. Text analysis
+3. User interface
+4. Data resources
+
+These responsibilities should remain loosely coupled.
+
+---
+
+# Architecture
+
+```
+Browser
+    │
+    ▼
+Content Script
+    │
+    ▼
+Detection Engine
+    │
+    ▼
+Observations
+    │
+    ▼
+Annotation Layer
+    │
+    ▼
+User Interface
+```
+
+---
+
+# Components
+
+## manifest.json
+
+Declares permissions and browser integration.
+
+No application logic.
+
+---
+
+## Content Script
+
+Responsible for:
+
+- accessing the current page;
+- extracting article content;
+- invoking the detection engine;
+- inserting annotations into the DOM.
+
+The content script should contain as little detection logic as possible.
+
+---
+
+## Detection Engine
+
+Responsible for:
+
+- loading language packs;
+- matching lexical markers;
+- producing observations.
+
+It never modifies the page directly.
+
+It never performs interpretation.
+
+---
+
+## Annotation Layer
+
+Responsible for transforming observations into visual annotations.
+
+Examples:
+
+- highlighting;
+- underlining;
+- tooltips;
+- future sidebar integration.
+
+---
+
+## User Interface
+
+Responsible for user interaction.
+
+Examples:
+
+- popup;
+- options page;
+- sidebar;
+- statistics.
+
+The UI should never implement detection logic.
+
+---
+
+## Language Packs
+
+Language packs contain language-specific lexical markers.
+
+They implement the conceptual taxonomy.
+
+Example:
+
+```
+Concept
+    │
+    ▼
+Language Pack
+    │
+    ▼
+Lexical Markers
+```
+
+Language packs are data.
+
+They are not executable code.
+
+---
+
+# Separation of responsibilities
+
+The following dependencies are permitted.
+
+```
+Content Script
+        │
+        ▼
+Detection Engine
+        │
+        ▼
+Language Packs
+
+Annotation Layer
+
+User Interface
+```
+
+The reverse dependencies are forbidden.
+
+For example:
+
+- language packs must never depend on the UI;
+- UI components must never implement lexical detection.
+
+---
+
+# Initial implementation
+
+The first prototype intentionally limits itself to:
+
+- loading on Substack pages;
+- reading article text;
+- detecting a few lexical markers;
+- highlighting matching occurrences.
+
+No AI.
+
+No semantic analysis.
+
+No cloud services.
+
+No user accounts.
+
+---
+
+# Consequences
+
+Positive:
+
+- simple architecture;
+- easy testing;
+- language independence;
+- future extensibility.
+
+Trade-offs:
+
+- additional files from the beginning;
+- slightly more abstraction than a minimal prototype.
+
+The project accepts this trade-off in favour of long-term maintainability.
+
+---
+
+# Future evolution
+
+This architecture supports future additions including:
+
+- configurable taxonomies;
+- multiple language packs;
+- sidebar navigation;
+- annotation export;
+- corpus analysis;
+- optional AI-assisted workflows.
+
+These additions should extend the architecture rather than replace it.
+
+---
+
+# References
+
+- CONSTITUTION.md
+- SESSION_BOOT.md
+- taxonomy.md
+- glossary.md
+- ADR-0001
