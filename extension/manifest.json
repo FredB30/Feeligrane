@@ -1,1 +1,17 @@
-
+{
+  "manifest_version": 3,
+  "name": "Feeligrane",
+  "version": "0.1.0",
+  "description": "Reveal the emotional watermark of long-form writing.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.substack.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
